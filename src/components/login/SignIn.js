@@ -36,7 +36,7 @@ const SignIn = (props) => {
     if (isLoggedIn) {
       navigate("/blogs");
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const [open, setOpen] = React.useState(false);
   const [errorMsg, seterrorMsg] = React.useState("");
@@ -49,7 +49,7 @@ const SignIn = (props) => {
         setOpen(true);
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loginResponse]);
   const AlertCloseHandler = () => {
     setOpen(false);
@@ -58,74 +58,73 @@ const SignIn = (props) => {
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <div style={{margin: "20% auto"}}>
-        <Card sx={{ backgroundColor: "white", padding: 2, boxShadow: 3 }}>
-          <CardContent>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography>
-            <Box noValidate sx={{ mt: 1 }}>
-              {"ksdhkhksdhffhlkahsdllsldlf"}
-              <Form method="post">
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  autoFocus
-                />
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                />
-                <Alertt
-                  open={open}
-                  AlertCloseHandler={AlertCloseHandler}
-                  message={errorMsg}
-                />
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  Sign In
-                </Button>
-              </Form>
-              <Grid container>
-                <Grid item xs></Grid>
-                <Grid item>
-                  <Link to={"/register"} style={{ textDecoration: "none" }}>
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
-            </Box>
-          </Box>
-        </CardContent>
-      </Card >
-      </div>
-    </Container>
-    </ThemeProvider >
+        <div style={{ margin: "20% auto" }}>
+          <Card sx={{ backgroundColor: "white", padding: 2, boxShadow: 3 }}>
+            <CardContent>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+                  <LockOutlinedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                  Sign in
+                </Typography>
+                <Box noValidate sx={{ mt: 1 }}>
+                  <Form method="post">
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="email"
+                      label="Email Address"
+                      name="email"
+                      autoComplete="email"
+                      autoFocus
+                    />
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      name="password"
+                      label="Password"
+                      type="password"
+                      id="password"
+                      autoComplete="current-password"
+                    />
+                    <Alertt
+                      open={open}
+                      AlertCloseHandler={AlertCloseHandler}
+                      message={errorMsg}
+                    />
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      sx={{ mt: 3, mb: 2 }}
+                    >
+                      Sign In
+                    </Button>
+                  </Form>
+                  <Grid container>
+                    <Grid item xs></Grid>
+                    <Grid item>
+                      <Link to={"/register"} style={{ textDecoration: "none" }}>
+                        {"Don't have an account? Sign Up"}
+                      </Link>
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Box>
+            </CardContent>
+          </Card>
+        </div>
+      </Container>
+    </ThemeProvider>
   );
 };
 
