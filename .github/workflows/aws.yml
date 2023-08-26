@@ -1,0 +1,34 @@
+# Name of workflow as seen in Github actions tab
+name: React build and diploy
+# Run workflow only on push to dev branch
+on:
+  push:
+    branches: [development, master]
+
+jobs:
+  # To build the project
+  build-react:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out code
+        uses: actions/checkout@v3
+
+      - name: Installing Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Installing dependencies
+        run: npm install
+
+      - name: Building project
+        run: npm run build
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::481613237379:role/GitHubActionsRole
+          aws-region: us-east-1
+
+      - name: Deploy to S3 bucket
+        run: aws s3 sync ./build/ s3://blog-connect --delete
