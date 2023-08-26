@@ -1,6 +1,5 @@
 # Name of workflow as seen in Github actions tab
 name: React build and diploy
-# Run workflow only on push to dev branch
 on:
   push:
     branches: [development, master]
