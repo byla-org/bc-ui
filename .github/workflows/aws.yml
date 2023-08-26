@@ -5,6 +5,10 @@ on:
   push:
     branches: [development, master]
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   # To build the projec
   build-react:
