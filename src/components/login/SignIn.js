@@ -36,6 +36,7 @@ const SignIn = (props) => {
     if (isLoggedIn) {
       navigate("/blogs");
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const [open, setOpen] = React.useState(false);
   const [errorMsg, seterrorMsg] = React.useState("");
@@ -48,6 +49,7 @@ const SignIn = (props) => {
         setOpen(true);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loginResponse]);
   const AlertCloseHandler = () => {
     setOpen(false);

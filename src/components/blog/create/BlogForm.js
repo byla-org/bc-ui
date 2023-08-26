@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Form,
   json,
@@ -9,7 +9,6 @@ import {
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -51,6 +50,7 @@ const BlogForm = (props) => {
         setOpen(true);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blogResponse]);
 
   const AlertCloseHandler = () => {
@@ -176,7 +176,7 @@ export async function action({ request, params }) {
   try {
     if (request.method === "POST") {
       try {
-        const res = await axios.post(createBlogUrl, reqData, {
+        await axios.post(createBlogUrl, reqData, {
           headers: {
             Authorization,
           },
@@ -190,7 +190,7 @@ export async function action({ request, params }) {
     } else if (request.method === "PUT") {
       const blogId = params.id;
       const updateUrl = updateBlogUrl + `/${blogId}`;
-      const res = await axios.put(updateUrl, reqData, {
+      await axios.put(updateUrl, reqData, {
         headers: {
           Authorization,
         },

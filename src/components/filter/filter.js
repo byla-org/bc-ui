@@ -17,7 +17,6 @@ function Filter(props) {
   const [toDate, setToDate] = React.useState("");
   const [fromDate, setFromDate] = React.useState("");
   const [category, setCategory] = React.useState("");
-  const [loading, setLoading] = React.useState(true);
   function handleClick() {
     if (!fromDate && !toDate) {
       navigate(`/blogs?category=${category}`);
@@ -28,26 +27,12 @@ function Filter(props) {
     );
   }
 
-  const filterEligibility = () => {
-    // console.log(category,toDate,fromDate);
-    // console.log(category || (toDate && fromDate));
-    // console.log()
-    // if(category ||(toDate & fromDate)){
-    //     console.log("inside");
-    // }
-    return !(category | (toDate & fromDate));
-  };
-
   const clearFiltersHandler = () => {
     setCategory("");
     setFromDate("");
     setToDate("");
     navigate("/blogs");
   };
-
-  React.useEffect(() => {
-    filterEligibility();
-  }, [filterEligibility, category, toDate, fromDate]);
 
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
@@ -76,7 +61,7 @@ function Filter(props) {
           {/* {toDate} */}
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
-              sx={{mr: 2}}
+              sx={{ mr: 2 }}
               value={fromDate}
               label="From Date"
               onChange={(newValue) => setFromDate(newValue)}
@@ -115,26 +100,32 @@ function Filter(props) {
           </FormControl>
         </Item>
       </Grid>
-      <Grid item xs={12} sm={6} md={3} sx={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+      <Grid
+        item
+        xs={12}
+        sm={6}
+        md={3}
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
         {/* <Item> */}
-          <Button
-            sx={{mr: 2, backgroundColor: "#121138"}}
-            onClick={handleClick}
-            // loading={loading}
-            // loadingPosition="start"
-            startIcon={<SearchIcon />}
-            variant="contained"
-          >
-            <span>Search</span>
-          </Button>
+        <Button
+          sx={{ mr: 2, backgroundColor: "#121138" }}
+          onClick={handleClick}
+          // loading={loading}
+          // loadingPosition="start"
+          startIcon={<SearchIcon />}
+          variant="contained"
+        >
+          <span>Search</span>
+        </Button>
 
-          <Button
-            sx={{backgroundColor: "#121138"}}
-            variant="contained"
-            onClick={clearFiltersHandler}
-          >
-            <span>Clear</span>
-          </Button>
+        <Button
+          sx={{ backgroundColor: "#121138" }}
+          variant="contained"
+          onClick={clearFiltersHandler}
+        >
+          <span>Clear</span>
+        </Button>
         {/* </Item> */}
       </Grid>
     </Grid>

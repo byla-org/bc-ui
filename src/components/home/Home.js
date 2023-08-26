@@ -10,13 +10,11 @@ import {
   json,
   redirect,
   useRouteLoaderData,
-  useNavigation,
   useLocation,
 } from "react-router-dom";
 import axios from "axios";
 import Filter from "../filter/filter";
 import { getAuthToken } from "../../utils/auth";
-import { grey } from "@mui/material/colors";
 import EmptyResults from "../common/EmptyResults";
 
 const base = process.env.REACT_APP_BASE_URL;
@@ -24,10 +22,8 @@ const getAllBlogsURL = base + process.env.REACT_APP_ADD_GET_BLOGS_URL;
 const getMyBlogsURL = base + process.env.REACT_APP_MY_BLOGS;
 
 const defaultTheme = createTheme();
-const primary = grey[800];
 
 export default function Home() {
-  const apiStatus = useNavigation();
   const location = useLocation();
   const blogs = useRouteLoaderData("all-blogs");
   const myBlogs = useRouteLoaderData("my-blogs");
