@@ -6,7 +6,7 @@ on:
     branches: [development, master]
 
 jobs:
-  # To build the project
+  # To build the projec
   build-react:
     runs-on: ubuntu-latest
     steps:
