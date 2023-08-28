@@ -24,12 +24,8 @@ import Alertt from "../common/Alertt";
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
-// const base = process.env.REACT_APP_BASE_URL;
-// const loginURL = base + process.env.REACT_APP_LOGIN_URL;
-
-const loginURL = process.env.REACT_APP_LOGIN_URL_D
-
-
+const base = process.env.REACT_APP_BASE_URL;
+const loginURL = base + process.env.REACT_APP_LOGIN_URL;
 
 
 const defaultTheme = createTheme();
