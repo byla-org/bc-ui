@@ -77,7 +77,7 @@ const SignIn = (props) => {
                   <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                  Sign in Tarun
+                  Sign in
                 </Typography>
                 <Box noValidate sx={{ mt: 1 }}>
                   <Form method="post">
